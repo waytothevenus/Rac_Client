@@ -95,14 +95,14 @@ const Step2 = () => {
   const { getValues } = useFormContext<SearchInputType>();
   const { orderPackage } = useTrackingContext();
 
-  if (!orderPackage)
+  if (orderPackage)
     return (
       <LabelId label="Tracking ID Not Found" id={getValues("trackingId")} />
     );
 
   return (
     <>
-      <LabelId label="Tracking ID" id={orderPackage.trackingId} />
+      <LabelId label="Tracking ID" id={orderPackage?.trackingId} />
       <RecentUpdate />
       <EstimatedDeliveryDate
         title="April,10 2023 - By End of Day"
